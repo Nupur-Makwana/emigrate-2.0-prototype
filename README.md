@@ -79,18 +79,6 @@ src/
 
 https://emigrate-20-modernize-prototype.vercel.app/
 
-```
-npm install
-npm run dev        # open http://localhost:3000
-npm run build      # production build into dist/
-npm run preview    # serve the production build
-npm run lint       # type-check
-```
-
-The first OCR run downloads the OCR engine and English language data from a public CDN, so you need an internet connection once per browser.
-
----
-
 ## Limitations
 
 - No backend: data lives only in the browser and clears if browser data is cleared.
