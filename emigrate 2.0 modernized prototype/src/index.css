@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  /* Institutional navy palette: generates bg-/text-/border-/ring-/from-/via-navy-* with all variants */
+  --color-navy-50: #eef3f9;
+  --color-navy-100: #d9e4f1;
+  --color-navy-200: #b3c8e0;
+  --color-navy-300: #84a4cb;
+  --color-navy-400: #4f7bad;
+  --color-navy-500: #2a5a91;
+  --color-navy-600: #1e4a80;
+  --color-navy-700: #1c4578;
+  --color-navy-800: #143560;
+  --color-navy-900: #0c2340;
+  --color-navy-950: #071528;
+
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-gov-pulse: gov-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes gov-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+}
+
+@layer base {
+  :root {
+    --saffron: #f97316;
+    --india-green: #15803d;
+  }
+}
+
+/* Lightweight entrance animations (replaces tailwindcss-animate classes used across the UI) */
+@keyframes enter-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes enter-slide-bottom { from { opacity: 0; transform: translateY(1.25rem); } to { opacity: 1; transform: translateY(0); } }
+.animate-in { animation: enter-fade 200ms ease-out both; }
+.animate-in.slide-in-from-bottom-5 { animation-name: enter-slide-bottom; }
+.animate-in.duration-100 { animation-duration: 100ms; }
+.animate-in.duration-150 { animation-duration: 150ms; }
+.animate-in.duration-200 { animation-duration: 200ms; }
+.animate-in.duration-300 { animation-duration: 300ms; }
+@media (prefers-reduced-motion: reduce) {
+  .animate-in { animation: none; }
+}
+
+/* National Tricolor Top Bar Accent */
+.tricolor-stripe {
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    #ff9933 0%,
+    #ff9933 33.33%,
+    #ffffff 33.33%,
+    #ffffff 66.66%,
+    #138808 66.66%,
+    #138808 100%
+  );
+}
+
+.tricolor-border {
+  border-image: linear-gradient(to right, #ff9933, #ffffff, #138808) 1;
+}
+
+/* Official Government Stamp watermark */
+.gov-watermark {
+  background-image: radial-gradient(circle at center, rgba(12, 35, 64, 0.03) 0, rgba(12, 35, 64, 0.03) 100%, transparent 100%);
+}
+
+/* High visual density adjustments */
+.gov-table th {
+  background-color: #f1f5f9;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: #0c2340;
+  border-bottom: 2px solid #cbd5e1;
+  padding: 0.5rem 0.75rem;
+}
+
+.gov-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.8125rem;
+}
